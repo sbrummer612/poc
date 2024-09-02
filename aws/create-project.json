@@ -1,0 +1,72 @@
+{
+    "name": "codebuild-poc-project",
+    "description": "",
+    "source": {
+    "type": "S3",
+    "location": "codebuild-region-ID-account-ID-input-bucket/MessageUtil.zip"
+  },
+  "artifacts": {
+    "type": "S3",
+    "location": "codebuild-region-ID-account-ID-output-bucket"
+  },
+  "environment": {
+    "type": "LINUX_CONTAINER",
+    "image": "aws/codebuild/standard:5.0",
+    "computeType": "BUILD_GENERAL1_SMALL"
+  },
+  "serviceRole": "serviceIAMRole",
+    "timeoutInMinutes": 0,
+    "queuedTimeoutInMinutes": 0,
+    "encryptionKey": "",
+    "tags": [
+        {
+            "key": "",
+            "value": ""
+        }
+    ],
+    "vpcConfig": {
+        "vpcId": "",
+        "subnets": [
+            ""
+        ],
+        "securityGroupIds": [
+            ""
+        ]
+    },
+    "badgeEnabled": true,
+    "logsConfig": {
+        "cloudWatchLogs": {
+            "status": "ENABLED",
+            "groupName": "",
+            "streamName": ""
+        },
+        "s3Logs": {
+            "status": "ENABLED",
+            "location": "",
+            "encryptionDisabled": true,
+            "bucketOwnerAccess": "NONE"
+        }
+    },
+    "fileSystemLocations": [
+        {
+            "type": "EFS",
+            "location": "",
+            "mountPoint": "",
+            "identifier": "",
+            "mountOptions": ""
+        }
+    ],
+    "buildBatchConfig": {
+        "serviceRole": "",
+        "combineArtifacts": true,
+        "restrictions": {
+            "maximumBuildsAllowed": 0,
+            "computeTypesAllowed": [
+                ""
+            ]
+        },
+        "timeoutInMins": 0,
+        "batchReportMode": "REPORT_INDIVIDUAL_BUILDS"
+    },
+    "concurrentBuildLimit": 0
+}

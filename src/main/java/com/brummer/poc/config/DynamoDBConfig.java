@@ -16,8 +16,7 @@ import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapper;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBMapperConfig;
 
 @Configuration
-@EnableDynamoDBRepositories
-    (basePackages = "com.brummer.poc.dynamodb.repository")
+//@EnableDynamoDBRepositories (basePackages = "com.brummer.poc.dynamodb.repository")
 public class DynamoDBConfig {
 	
 	@Value("${amazon.dynamodb.endpoint}")
@@ -48,30 +47,31 @@ public class DynamoDBConfig {
 //    }
     // works locally but not in AWS END
     
-    private AWSCredentialsProvider awsDynamoDBCredentials() {
-        return new AWSStaticCredentialsProvider(
-            new BasicAWSCredentials(amazonAWSAccessKey, amazonAWSSecretKey));
-      }
-
-      @Primary
-      @Bean
-      public DynamoDBMapperConfig dynamoDBMapperConfig() {
-        return DynamoDBMapperConfig.DEFAULT;
-      }
-
-      @Bean
-      @Primary
-      public DynamoDBMapper dynamoDBMapper(AmazonDynamoDB amazonDynamoDB,
-                                           DynamoDBMapperConfig config) {
-        return new DynamoDBMapper(amazonDynamoDB, config);
-      }
-
-      @Bean
-      public AmazonDynamoDB amazonDynamoDB() {
-
-        return AmazonDynamoDBClientBuilder.standard()
-            .withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration(amazonDynamoDBEndpoint, amazonAwsRegion))
-            .withCredentials(awsDynamoDBCredentials()).build();
-      }
-    
+    // new test BEGIN
+//    private AWSCredentialsProvider awsDynamoDBCredentials() {
+//        return new AWSStaticCredentialsProvider(
+//            new BasicAWSCredentials(amazonAWSAccessKey, amazonAWSSecretKey));
+//      }
+//
+//      @Primary
+//      @Bean
+//      public DynamoDBMapperConfig dynamoDBMapperConfig() {
+//        return DynamoDBMapperConfig.DEFAULT;
+//      }
+//
+//      @Bean
+//      @Primary
+//      public DynamoDBMapper dynamoDBMapper(AmazonDynamoDB amazonDynamoDB,
+//                                           DynamoDBMapperConfig config) {
+//        return new DynamoDBMapper(amazonDynamoDB, config);
+//      }
+//
+//      @Bean
+//      public AmazonDynamoDB amazonDynamoDB() {
+//
+//        return AmazonDynamoDBClientBuilder.standard()
+//            .withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration(amazonDynamoDBEndpoint, amazonAwsRegion))
+//            .withCredentials(awsDynamoDBCredentials()).build();
+//      }
+      // new test END
 }

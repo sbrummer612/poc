@@ -11,30 +11,35 @@ import com.brummer.poc.dynamodb.repository.StudentRepository;
 @Service
 public class StudentService {
 	
-	@Autowired
-	StudentRepository studentRepo;
+//	@Autowired
+//	StudentRepository studentRepo;
 
 	public Iterable<Student> getStudents() {
-		return studentRepo.findAll();
+//		return studentRepo.findAll();
+		return null;
 	}
 
 	public Optional<Student> getStudent(String id) {
-		Optional<Student> student = studentRepo.findById(id);
-		return student;
+//		Optional<Student> student = studentRepo.findById(id);
+//		return student;
+		return null;
 	}
 
 	public Student updateStudent(Student student, String id) {
 //		boolean exists = studentRepo.existsById(id);
-		student.setId(id);
-		return studentRepo.save(student);
+//		student.setId(id);
+//		return studentRepo.save(student);
+		return null;
 	}
 
 	public void deleteStudent(String id) {
 //		boolean exists = studentRepo.existsById(id);
-		studentRepo.deleteById(id);	
+//		studentRepo.deleteById(id);
+		
 	}
 	
 	public Student addStudent(Student student) {		
-		return studentRepo.save(student);	
+//		return studentRepo.save(student);
+		return null;
 	}
 }
